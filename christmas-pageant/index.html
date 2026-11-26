@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CGLD Christmas Pageant ’26 — You’re Invited</title>
+<meta name="description" content="Christmas Pageant ’26: NOWHERE. Friday, December 11, 2026 at CGLD Lawn. RSVP online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+<div class="lights" aria-hidden="true"></div>
+
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="float" aria-hidden="true">
+    <span style="--x:6%;--y:18%;--d:0s">⭐</span><span style="--x:90%;--y:12%;--d:1s">🔔</span>
+    <span style="--x:48%;--y:8%;--d:2s">✨</span><span style="--x:4%;--y:70%;--d:1.5s">🎁</span><span style="--x:93%;--y:75%;--d:.5s">⭐</span>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hello">You’re invited!</p>
+      <h1>Christmas Pageant ’26<span>NOWHERE</span></h1>
+      <p class="lead">With great joy, we invite you and your loved ones to an evening dedicated to celebrating the birth of our Savior, Jesus Christ.</p>
+      <p class="facts"><b>Friday, December 11, 2026</b><br><b>Venue: CGLD Lawn</b></p>
+      <p class="program">Come be uplifted by melodious carols, captivating drama and vibrant dance, followed by a fellowship dinner.</p>
+      <div id="countdown" class="countdown" role="timer" aria-label="Time until the event">
+        <div><b data-cd="d">00</b>Days</div><div><b data-cd="h">00</b>Hours</div><div><b data-cd="m">00</b>Minutes</div><div><b data-cd="s">00</b>Seconds</div>
+      </div>
+      <a href="#rsvp" class="btn pulse">RSVP now</a>
+    </div>
+    <figure class="poster">
+      <img src="christmas-poster.jpg" width="1080" height="1350" alt="Invitation poster: Christmas Pageant ’26, NOWHERE. Friday, December 11, 2026, CGLD Lawn. Kindly RSVP to confirm your presence.">
+    </figure>
+  </div>
+  <a class="scroll" href="#rsvp" aria-label="Scroll down to the RSVP form">⌄</a>
+</header>
+
+<div class="candy" aria-hidden="true"></div>
+<main>
+<section class="sec light" id="rsvp" aria-labelledby="rsvp-h">
+  <div class="card-form">
+    <h2 id="rsvp-h">Save your seat</h2>
+    <p class="sub">Kindly RSVP to confirm your presence.</p>
+
+    <form id="rsvp-form" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <label class="fld" for="name">Your name
+        <input id="name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="e.g. Grace Thomas" required>
+        <em class="err" data-for="name" role="alert"></em>
+      </label>
+
+      <label class="fld" for="phone">Phone number
+        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required>
+        <small>Indian mobile number, or an international number starting with +.</small>
+        <em class="err" data-for="phone" role="alert"></em>
+      </label>
+
+      <div class="fld">
+        <label for="headcount">How many people are coming?</label>
+        <div class="stepper">
+          <button type="button" data-step="-1" aria-label="Fewer guests">−</button>
+          <input id="headcount" name="headcount" type="number" min="1" max="20" value="1" inputmode="numeric">
+          <button type="button" data-step="1" aria-label="More guests">+</button>
+        </div>
+        <small>Count everyone in your group, including you.</small>
+        <em class="err" data-for="headcount" role="alert"></em>
+      </div>
+
+      <fieldset class="fld"><legend>Preferred food</legend>
+        <div class="cards">
+          <label class="opt"><input type="radio" name="food" value="veg"><span><i>🥗</i>Vegetarian</span></label>
+          <label class="opt"><input type="radio" name="food" value="nonveg"><span><i>🍗</i>Non-vegetarian</span></label>
+        </div>
+        <em class="err" data-for="food" role="alert"></em>
+      </fieldset>
+
+      <fieldset class="fld"><legend>Are you confirming your attendance?</legend>
+        <div class="cards">
+          <label class="opt yes"><input type="radio" name="attendance" value="yes"><span><i>🎄</i>Yes, I’ll be attending!</span></label>
+          <label class="opt no"><input type="radio" name="attendance" value="no"><span><i>💌</i>Unable to attend</span></label>
+        </div>
+        <em class="err" data-for="attendance" role="alert"></em>
+      </fieldset>
+
+      <button class="btn" id="submit" type="submit"><span class="lbl">Send my RSVP</span><span class="spin" aria-hidden="true"></span></button>
+      <p id="form-msg" class="form-msg" role="alert"></p>
+      <p class="privacy">🔒 Your name and phone number are collected only to coordinate this event. They are visible to the organisers and are never shown publicly.</p>
+    </form>
+
+    <div id="thanks" class="thanks" hidden tabindex="-1">
+      <div class="tree" aria-hidden="true">🎄</div>
+      <h3>Thank you!</h3>
+      <p id="thanks-text"></p>
+      <button type="button" class="btn alt" id="again">RSVP for someone else</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec qr" aria-labelledby="qr-h">
+  <h2 id="qr-h">Scan to RSVP</h2>
+  <p class="sub">Scan the QR code and confirm your attendance!</p>
+  <div class="qr-frame"><canvas id="qr-canvas" width="300" height="300" role="img" aria-label="QR code linking to this invitation page"></canvas></div>
+  <p id="qr-note" class="note" hidden>The QR code will appear here once <code>SITE_URL</code> is set in <code>script.js</code>.</p>
+  <button type="button" class="btn alt" id="qr-dl">Download QR (PNG)</button>
+
+  <div class="surprise">
+    <button type="button" id="gift" class="gift" aria-describedby="wish"><span aria-hidden="true">🎁</span><span class="sr">Open a Christmas surprise</span></button>
+    <p id="wish" class="wish" aria-live="polite">Tap the gift for a little Christmas surprise.</p>
+  </div>
+</section>
+
+<section class="sec stats" aria-labelledby="st-h">
+  <div class="tree" aria-hidden="true">🎄</div>
+  <h2 id="st-h">The Christmas Celebration is Growing!</h2>
+  <div class="stat-row">
+    <div class="stat"><b class="num" id="stat-reg">—</b><span>Registrations received</span></div>
+    <div class="stat"><b class="num" id="stat-guests">—</b><span>Confirmed guests</span></div>
+  </div>
+  <p id="stats-note" class="note" aria-live="polite"></p>
+</section>
+</main>
+
+<footer>
+  <div class="candy" aria-hidden="true"></div>
+  <p class="foot-title">CGLD Christmas Pageant ’26 · NOWHERE</p>
+  <p>Friday, December 11, 2026 · CGLD Lawn</p>
+  <p>Wishing you a blessed and joyful Christmas.</p>
+  <p class="small">Made with Christmas Joy 🎄</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
