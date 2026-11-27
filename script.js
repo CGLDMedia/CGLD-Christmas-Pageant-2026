@@ -208,7 +208,6 @@ $("#again").addEventListener("click", () => { $("#thanks").hidden = true; form.h
     "Christmas is a gift. Unwrap every moment of it.",
     "May every carol you hear remind you how loved you are.",
     "Here’s to full hearts, warm hugs and a table with room for everyone.",
-    "May the star that led the way light up your path this year.",
     "Wishing you the kind of Christmas that makes you want to sing.",
     "Peace on earth begins with a warm welcome. Thank you for being part of ours.",
     "May your Christmas be merry, your heart be light and your faith be strong.",
