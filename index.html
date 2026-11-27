@@ -79,14 +79,6 @@
         <em class="err" data-for="food" role="alert"></em>
       </fieldset>
 
-      <fieldset class="fld"><legend>Are you confirming your attendance?</legend>
-        <div class="cards">
-          <label class="opt yes"><input type="radio" name="attendance" value="yes"><span><i>🎄</i>Yes, I’ll be attending!</span></label>
-          <label class="opt no"><input type="radio" name="attendance" value="no"><span><i>💌</i>Unable to attend</span></label>
-        </div>
-        <em class="err" data-for="attendance" role="alert"></em>
-      </fieldset>
-
       <button class="btn" id="submit" type="submit"><span class="lbl">Send my RSVP</span><span class="spin" aria-hidden="true"></span></button>
       <p id="form-msg" class="form-msg" role="alert"></p>
       <p class="privacy">🔒 Your name and phone number are collected only to coordinate this event. They are visible to the organisers and are never shown publicly.</p>
@@ -101,13 +93,7 @@
   </div>
 </section>
 
-<section class="sec qr" aria-labelledby="qr-h">
-  <h2 id="qr-h">Scan to RSVP</h2>
-  <p class="sub">Scan the QR code and confirm your attendance!</p>
-  <div class="qr-frame"><canvas id="qr-canvas" width="300" height="300" role="img" aria-label="QR code linking to this invitation page"></canvas></div>
-  <p id="qr-note" class="note" hidden>The QR code will appear here once <code>SITE_URL</code> is set in <code>script.js</code>.</p>
-  <button type="button" class="btn alt" id="qr-dl">Download QR (PNG)</button>
-
+<section class="sec qr" aria-label="Christmas surprise">
   <div class="surprise">
     <button type="button" id="gift" class="gift" aria-describedby="wish"><span aria-hidden="true">🎁</span><span class="sr">Open a Christmas surprise</span></button>
     <p id="wish" class="wish" aria-live="polite">Tap the gift for a little Christmas surprise.</p>
@@ -133,7 +119,6 @@
   <p class="small">Made with Christmas Joy 🎄</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>
