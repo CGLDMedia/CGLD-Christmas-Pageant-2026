@@ -3,7 +3,6 @@
 
 /* ===== 1. CONFIG — edit these values ===== */
 const CONFIG = {
-  SITE_URL: "https://cgldmedia.github.io/CGLD-Christmas-Pageant-2026/#rsvp",         // ← paste your published GitHub Pages URL, e.g. "https://yourname.github.io/christmas-pageant/"
   APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxPGrg1HMvSrdE3w89QTXGwUPmNo6OCm64YXZiHVMVDzVn453N6D_UObd0z32IYF3Wb/exec",  // ← paste your Apps Script Web App URL (ends in /exec)
   EVENT_DATE: "2026-12-11T18:00:00", // Friday, 11 Dec 2026, 6PM — from the poster; change if the time changes
   STATS_REFRESH_MS: 60000
@@ -133,7 +132,6 @@ function validate(d) {
   if (!PHONE_RE.test(d.phone)) e.phone = "Enter a 10-digit Indian mobile number, or an international number starting with +.";
   if (!Number.isInteger(d.headcount) || d.headcount < 1 || d.headcount > 20) e.headcount = "Enter a headcount between 1 and 20.";
   if (!d.food) e.food = "Choose Vegetarian or Non-vegetarian.";
-  if (!d.attendance) e.attendance = "Tell us whether you can attend.";
   return e;
 }
 
@@ -156,7 +154,7 @@ form.addEventListener("submit", async ev => {
     name: String(f.get("name")).trim().replace(/\s+/g, " "),
     phone: String(f.get("phone")).replace(/[\s\-().]/g, ""),
     headcount: Number(f.get("headcount")),
-    food: f.get("food"), attendance: f.get("attendance"),
+    food: f.get("food"), attendance: "yes",
     website: f.get("website"), // honeypot: real visitors leave it empty
     submissionId: submissionId()
   };
@@ -187,25 +185,6 @@ form.addEventListener("submit", async ev => {
 });
 
 $("#again").addEventListener("click", () => { $("#thanks").hidden = true; form.hidden = false; $("#name").focus(); });
-
-/* ===== 7. QR code (encodes SITE_URL only) ===== */
-(() => {
-  const cv = $("#qr-canvas"), url = CONFIG.SITE_URL.trim();
-  if (!/^https?:\/\//.test(url) || typeof qrcode !== "function") {
-    cv.parentElement.hidden = true; $("#qr-dl").hidden = true; $("#qr-note").hidden = false; return;
-  }
-  const qr = qrcode(0, "H"); qr.addData(url); qr.make();
-  const n = qr.getModuleCount(), quiet = 4, cell = Math.ceil(1200 / (n + quiet * 2)), px = cell * (n + quiet * 2);
-  cv.width = cv.height = px; // ~1200px for print-quality PNG
-  const x = cv.getContext("2d");
-  x.fillStyle = "#fff"; x.fillRect(0, 0, px, px); x.fillStyle = "#4a0a12";
-  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (qr.isDark(r, c)) x.fillRect((c + quiet) * cell, (r + quiet) * cell, cell, cell);
-  $("#qr-dl").addEventListener("click", () => cv.toBlob(b => {
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(b); a.download = "cgld-christmas-pageant-rsvp-qr.png"; a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-  }));
-})();
 
 /* ===== 8. Christmas surprise ===== */
 (() => {
