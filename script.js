@@ -3,8 +3,8 @@
 
 /* ===== 1. CONFIG — edit these values ===== */
 const CONFIG = {
-  SITE_URL: "",         // ← paste your published GitHub Pages URL, e.g. "https://yourname.github.io/christmas-pageant/"
-  APPS_SCRIPT_URL: "",  // ← paste your Apps Script Web App URL (ends in /exec)
+  SITE_URL: "https://cgldmedia.github.io/CGLD-Christmas-Pageant-2026/#rsvp",         // ← paste your published GitHub Pages URL, e.g. "https://yourname.github.io/christmas-pageant/"
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxPGrg1HMvSrdE3w89QTXGwUPmNo6OCm64YXZiHVMVDzVn453N6D_UObd0z32IYF3Wb/exec",  // ← paste your Apps Script Web App URL (ends in /exec)
   EVENT_DATE: "2026-12-11T18:00:00", // Friday, 11 Dec 2026, 6PM — from the poster; change if the time changes
   STATS_REFRESH_MS: 60000
 };
