@@ -3,7 +3,7 @@
 
 /* ===== 1. CONFIG — edit these values ===== */
 const CONFIG = {
-  APPS_SCRIPT_URL: "",  // ← paste your Apps Script Web App URL (ends in /exec)
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwGHXoMfh7OmOlp-IDjTHjGGIVqqgbGURcDpOvrTMVdqfawuoIl_PFb_nJ-CZ_xMe9l/exec",  // ← paste your Apps Script Web App URL (ends in /exec)
   EVENT_DATE: "2026-12-11T18:00:00", // Friday, 11 Dec 2026, 6PM — from the poster; change if the time changes
   STATS_REFRESH_MS: 60000
 };
